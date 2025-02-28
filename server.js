@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const http = require('http');
+const MongoDB = require('mongodb')
 const socketIo = require('socket.io');
 const app = express()
 const server = http.createServer(app);
@@ -20,7 +21,7 @@ const MONGO_URI = process.env.MONGO_URI;
 app.use(cors())
 app.use(bodyParser.json())
 
-mongoose.connect(MONGO_URI,{
+MongoDB.connect(MONGO_URI,{
     
 }).then(() => console.log("MongoDB connected"))
 .catch(err => console.log(err));
